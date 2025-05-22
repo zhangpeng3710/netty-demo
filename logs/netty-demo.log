@@ -1,0 +1,920 @@
+2025-05-22 23:51:30.552  INFO 17028 --- [main] c.r.netty.client.NettyClientApplication  : Starting NettyClientApplication using Java 1.8.0_371 on Peng with PID 17028 (D:\Projects\code\test\netty-demo\netty-client\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:51:30.554  INFO 17028 --- [main] c.r.netty.client.NettyClientApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:51:31.085  INFO 17028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:51:31.085  INFO 17028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:51:31.222  INFO 17028 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:51:31.348  WARN 17028 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'nettyClient' defined in file [D:\Projects\code\test\netty-demo\netty-client\target\classes\com\roc\netty\client\netty\client\NettyClient.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.roc.netty.client.handler.ClientBusinessHandler' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-05-22 23:51:31.350  INFO 17028 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-22 23:51:31.370 ERROR 17028 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.roc.netty.client.netty.client.NettyClient required a bean of type 'com.roc.netty.client.handler.ClientBusinessHandler' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.roc.netty.client.handler.ClientBusinessHandler' in your configuration.
+
+2025-05-22 23:55:04.636  INFO 17180 --- [main] c.r.netty.server.NettyServerApplication  : Starting NettyServerApplication using Java 1.8.0_371 on Peng with PID 17180 (D:\Projects\code\test\netty-demo\netty-server\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:55:04.638  INFO 17180 --- [main] c.r.netty.server.NettyServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:55:05.078  INFO 17180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:55:05.078  INFO 17180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:55:05.162  INFO 17180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:55:05.456  INFO 17180 --- [main] c.r.netty.server.NettyServerApplication  : Started NettyServerApplication in 1.056 seconds (JVM running for 1.543)
+2025-05-22 23:55:05.683  INFO 17180 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Netty server started on 0.0.0.0:8888
+2025-05-22 23:55:05.683  INFO 17180 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Server configuration: NettyConfig.ServerConfig(host=0.0.0.0, port=8888, bossThreads=1, workerThreads=0, keepAlive=true, backlog=128, readerIdleTimeSeconds=5, writerIdleTimeSeconds=4, allIdleTimeSeconds=0, maxLostHeartbeat=3)
+2025-05-22 23:55:24.685  INFO 5872 --- [main] c.r.netty.client.NettyClientApplication  : Starting NettyClientApplication using Java 1.8.0_371 on Peng with PID 5872 (D:\Projects\code\test\netty-demo\netty-client\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:55:24.686  INFO 5872 --- [main] c.r.netty.client.NettyClientApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:55:25.129  INFO 5872 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:55:25.129  INFO 5872 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:55:25.209  INFO 5872 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:55:25.318  WARN 5872 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'nettyClient' defined in file [D:\Projects\code\test\netty-demo\netty-client\target\classes\com\roc\netty\client\netty\client\NettyClient.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.roc.netty.client.handler.ClientBusinessHandler' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-05-22 23:55:25.319  INFO 5872 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-22 23:55:25.335 ERROR 5872 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.roc.netty.client.netty.client.NettyClient required a bean of type 'com.roc.netty.client.handler.ClientBusinessHandler' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.roc.netty.client.handler.ClientBusinessHandler' in your configuration.
+
+2025-05-22 23:56:20.912  INFO 17180 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down Netty server...
+2025-05-22 23:56:20.912  INFO 17180 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down boss group...
+2025-05-22 23:56:20.913  INFO 17180 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Shutting down boss group...
+2025-05-22 23:56:22.979  INFO 17180 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down worker group...
+2025-05-22 23:56:22.979  INFO 17180 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Shutting down worker group...
+2025-05-22 23:56:31.857  INFO 16280 --- [main] c.r.netty.server.NettyServerApplication  : Starting NettyServerApplication using Java 1.8.0_371 on Peng with PID 16280 (D:\Projects\code\test\netty-demo\netty-server\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:56:31.859  INFO 16280 --- [main] c.r.netty.server.NettyServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:56:32.550  INFO 16280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:56:32.550  INFO 16280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:56:32.690  INFO 16280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:56:33.210  INFO 16280 --- [main] c.r.netty.server.NettyServerApplication  : Started NettyServerApplication in 1.684 seconds (JVM running for 2.555)
+2025-05-22 23:57:56.497  INFO 16280 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Netty server started on 0.0.0.0:8888
+2025-05-22 23:57:56.499  INFO 16280 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Server configuration: NettyConfig.ServerConfig(host=0.0.0.0, port=8888, bossThreads=1, workerThreads=0, keepAlive=true, backlog=128, readerIdleTimeSeconds=5, writerIdleTimeSeconds=4, allIdleTimeSeconds=0, maxLostHeartbeat=3)
+2025-05-22 23:58:06.670  INFO 7844 --- [main] c.r.netty.client.NettyClientApplication  : Starting NettyClientApplication using Java 1.8.0_371 on Peng with PID 7844 (D:\Projects\code\test\netty-demo\netty-client\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:58:06.673  INFO 7844 --- [main] c.r.netty.client.NettyClientApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:58:07.338  INFO 7844 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:58:07.338  INFO 7844 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:58:07.478  INFO 7844 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:58:07.937  WARN 7844 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2025-05-22 23:58:07.938  INFO 7844 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Shutting down Netty client...
+2025-05-22 23:58:07.938  INFO 7844 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Netty client shutdown complete.
+2025-05-22 23:58:07.940  INFO 7844 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-22 23:58:07.963 ERROR 7844 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-22 23:59:15.088  INFO 16240 --- [main] c.r.netty.client.NettyClientApplication  : Starting NettyClientApplication using Java 1.8.0_371 on Peng with PID 16240 (D:\Projects\code\test\netty-demo\netty-client\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:59:15.090  INFO 16240 --- [main] c.r.netty.client.NettyClientApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:59:15.766  INFO 16240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:59:15.766  INFO 16240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:59:15.903  INFO 16240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:59:16.390  INFO 16240 --- [main] c.r.netty.client.NettyClientApplication  : Started NettyClientApplication in 1.624 seconds (JVM running for 2.267)
+2025-05-22 23:59:21.900  INFO 16240 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-22 23:59:22.243  INFO 16240 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Netty client connected to server: 127.0.0.1:8888
+2025-05-22 23:59:22.245  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 连接到服务器成功
+2025-05-22 23:59:22.269  INFO 16280 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 客户端连接成功: /127.0.0.1:49487, 分配ID: client-f71a8108
+2025-05-22 23:59:22.270  INFO 16280 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 当前连接数: 1
+2025-05-22 23:59:22.315  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   + Welcome! Your client ID is: client-f71a8108
+2025-05-22 23:59:26.284  INFO 16240 --- [netty-client--2-1] c.r.n.client.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 1
+2025-05-22 23:59:26.315  INFO 16280 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 1
+2025-05-22 23:59:26.315  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-22 23:59:27.281  INFO 16280 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 2
+2025-05-22 23:59:27.281  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-22 23:59:30.289  INFO 16240 --- [netty-client--2-1] c.r.n.client.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 2
+2025-05-22 23:59:31.283  INFO 16280 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 3
+2025-05-22 23:59:31.283  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-22 23:59:32.292  INFO 16280 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 4
+2025-05-22 23:59:32.293  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-22 23:59:32.293 ERROR 16280 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 心跳超时，关闭连接
+2025-05-22 23:59:32.296  WARN 16240 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connection to server lost, will try to reconnect in 5 seconds...
+2025-05-22 23:59:32.296  INFO 16240 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 与服务器断开连接
+2025-05-22 23:59:32.296  INFO 16280 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 客户端断开连接: /127.0.0.1:49487
+2025-05-22 23:59:32.297  INFO 16280 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 当前连接数: 0
+2025-05-22 23:59:34.635  INFO 16240 --- [SpringApplicationShutdownHook] c.r.n.c.netty.client.NettyClientStarter  : Shutting down Netty client...
+2025-05-22 23:59:34.636  INFO 16280 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down Netty server...
+2025-05-22 23:59:34.636  INFO 16280 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down boss group...
+2025-05-22 23:59:34.636  INFO 16280 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Shutting down boss group...
+2025-05-22 23:59:36.708  INFO 16280 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Shutting down worker group...
+2025-05-22 23:59:36.708  INFO 16280 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down worker group...
+2025-05-22 23:59:36.708  INFO 16240 --- [SpringApplicationShutdownHook] c.r.n.c.netty.client.NettyClientStarter  : Netty client shutdown complete.
+2025-05-22 23:59:38.781  INFO 16280 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Netty server shutdown complete.
+2025-05-22 23:59:57.106  INFO 13924 --- [main] c.r.netty.server.NettyServerApplication  : Starting NettyServerApplication using Java 1.8.0_371 on Peng with PID 13924 (D:\Projects\code\test\netty-demo\netty-server\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:59:57.107  INFO 13924 --- [main] c.r.netty.server.NettyServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:59:57.596  INFO 13924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:59:57.596  INFO 13924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:59:58.486  INFO 13924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:59:58.802  INFO 13924 --- [main] c.r.netty.server.NettyServerApplication  : Started NettyServerApplication in 1.916 seconds (JVM running for 2.787)
+2025-05-22 23:59:59.010  INFO 20352 --- [main] c.r.netty.client.NettyClientApplication  : Starting NettyClientApplication using Java 1.8.0_371 on Peng with PID 20352 (D:\Projects\code\test\netty-demo\netty-client\target\classes started by zhang in D:\Projects\code\test\netty-demo)
+2025-05-22 23:59:59.012  INFO 20352 --- [main] c.r.netty.client.NettyClientApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-05-22 23:59:59.050  INFO 13924 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Netty server started on 0.0.0.0:8888
+2025-05-22 23:59:59.051  INFO 13924 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Server configuration: NettyConfig.ServerConfig(host=0.0.0.0, port=8888, bossThreads=1, workerThreads=0, keepAlive=true, backlog=128, readerIdleTimeSeconds=5, writerIdleTimeSeconds=4, allIdleTimeSeconds=0, maxLostHeartbeat=3)
+2025-05-22 23:59:59.470  INFO 20352 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-22 23:59:59.470  INFO 20352 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-05-22 23:59:59.549  INFO 20352 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2025-05-22 23:59:59.821  INFO 20352 --- [main] c.r.netty.client.NettyClientApplication  : Started NettyClientApplication in 1.053 seconds (JVM running for 1.55)
+2025-05-22 23:59:59.843  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:00.044  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Netty client connected to server: 127.0.0.1:8888
+2025-05-23 00:00:00.044  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 连接到服务器成功
+2025-05-23 00:00:00.052  INFO 13924 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 客户端连接成功: /127.0.0.1:49638, 分配ID: client-ca078bfb
+2025-05-23 00:00:00.059  INFO 13924 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 当前连接数: 1
+2025-05-23 00:00:00.073  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   + Welcome! Your client ID is: client-ca078bfb
+2025-05-23 00:00:04.062  INFO 20352 --- [netty-client--2-1] c.r.n.client.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 1
+2025-05-23 00:00:04.078  INFO 13924 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 1
+2025-05-23 00:00:04.078  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-23 00:00:05.056  INFO 13924 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 2
+2025-05-23 00:00:05.056  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-23 00:00:08.069  INFO 20352 --- [netty-client--2-1] c.r.n.client.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 2
+2025-05-23 00:00:09.063  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-23 00:00:09.063  INFO 13924 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 3
+2025-05-23 00:00:10.060  INFO 13924 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 发送心跳消息，当前心跳丢失次数: 4
+2025-05-23 00:00:10.060  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 客户端收到消息:   
+2025-05-23 00:00:10.060 ERROR 13924 --- [netty-worker--4-1] c.r.n.server.handler.HeartbeatHandler    : 心跳超时，关闭连接
+2025-05-23 00:00:10.062  INFO 13924 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 客户端断开连接: /127.0.0.1:49638
+2025-05-23 00:00:10.062  INFO 13924 --- [defaultEventExecutorGroup-2-1] c.r.n.s.handler.ServerBusinessHandler    : 当前连接数: 0
+2025-05-23 00:00:10.062  WARN 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connection to server lost, will try to reconnect in 5 seconds...
+2025-05-23 00:00:10.062  INFO 20352 --- [netty-client--2-1] c.r.n.c.handler.ClientBusinessHandler    : 与服务器断开连接
+2025-05-23 00:00:15.072  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:15.079  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0x09beb65b]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:15.079 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:20.080  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:20.081  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xb3ecaa3c]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:20.081 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:25.087  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:25.088  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0x81e6ef99]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:25.089 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:30.095  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:30.096  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xc5cc97e3]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:30.097 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:35.110  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:35.111  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xf171b679]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:35.112 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:40.122  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:40.123  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0x774ec60a]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:40.124 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:45.130  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:45.131  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0x5ce0307b]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:45.131 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:50.144  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:50.144  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xdff6d41a]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:50.145 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:00:55.150  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:00:55.151  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xbca2fbc5]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:00:55.152 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:01:00.167  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:01:00.167  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0x95491d1a]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:01:00.168 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:01:05.177  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:01:05.178  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xe3b9bdad]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:01:05.179 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:01:10.195  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:01:10.196  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0xdb924c8f]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:01:10.197 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:01:15.212  INFO 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Connecting to server: 127.0.0.1:8888
+2025-05-23 00:01:15.213  WARN 20352 --- [netty-client--2-1] io.netty.channel.ChannelInitializer      : Failed to initialize a channel. Closing: [id: 0x862e9261]
+
+io.netty.channel.ChannelPipelineException: com.roc.netty.client.handler.HeartbeatHandler is not a @Sharable handler, so can't be added or removed multiple times.
+	at io.netty.channel.DefaultChannelPipeline.checkMultiplicity(DefaultChannelPipeline.java:549) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.internalAdd(DefaultChannelPipeline.java:166) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:227) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:330) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.addLast(DefaultChannelPipeline.java:319) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:39) ~[classes/:na]
+	at com.roc.netty.client.netty.client.NettyClient.initChannel(NettyClient.java:20) ~[classes/:na]
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:129) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:112) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.callHandlerAdded(AbstractChannelHandlerContext.java:1130) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:558) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.access$100(DefaultChannelPipeline.java:45) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1410) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1064) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:599) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:513) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:428) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:485) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) [netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.121.Final.jar:4.1.121.Final]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_371]
+
+2025-05-23 00:01:15.214 ERROR 20352 --- [main] c.r.n.c.netty.client.NettyClientStarter  : Failed to connect to server, will retry in 5 seconds
+
+io.netty.channel.StacklessClosedChannelException: null
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.ensureOpen(ChannelPromise)(Unknown Source) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+	Suppressed: java.lang.RuntimeException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419) ~[netty-common-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30) ~[netty-transport-4.1.121.Final.jar:4.1.121.Final]
+		at com.roc.netty.client.netty.client.NettyClientStarter.connectToServer(NettyClientStarter.java:72) [classes/:na]
+		at com.roc.netty.client.netty.client.NettyClientStarter.run(NettyClientStarter.java:50) [classes/:na]
+		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.lambda$callRunners$2(SpringApplication.java:749) [spring-boot-2.7.18.jar:2.7.18]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184) ~[na:1.8.0_371]
+		at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:352) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151) ~[na:1.8.0_371]
+		at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174) ~[na:1.8.0_371]
+		at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:1.8.0_371]
+		at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:418) ~[na:1.8.0_371]
+		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:744) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) [spring-boot-2.7.18.jar:2.7.18]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) [spring-boot-2.7.18.jar:2.7.18]
+		at com.roc.netty.client.NettyClientApplication.main(NettyClientApplication.java:10) ~[classes/:na]
+
+2025-05-23 00:01:15.442  INFO 20352 --- [SpringApplicationShutdownHook] c.r.n.c.netty.client.NettyClientStarter  : Shutting down Netty client...
+2025-05-23 00:01:15.442  INFO 13924 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down Netty server...
+2025-05-23 00:01:15.442  INFO 13924 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down boss group...
+2025-05-23 00:01:15.442  INFO 13924 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Shutting down boss group...
+2025-05-23 00:01:17.510  INFO 13924 --- [main] c.r.n.s.netty.server.NettyServerStarter  : Shutting down worker group...
+2025-05-23 00:01:17.510  INFO 13924 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Shutting down worker group...
+2025-05-23 00:01:17.511  INFO 20352 --- [SpringApplicationShutdownHook] c.r.n.c.netty.client.NettyClientStarter  : Netty client shutdown complete.
+2025-05-23 00:01:19.589  INFO 13924 --- [SpringApplicationShutdownHook] c.r.n.s.netty.server.NettyServerStarter  : Netty server shutdown complete.
