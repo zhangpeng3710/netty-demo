@@ -1,6 +1,5 @@
 package com.roc.netty.server.controller;
 
-import com.roc.netty.server.netty.server.NettyServerStarter;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
@@ -17,8 +16,6 @@ import java.util.Map;
 @RequestMapping("/api/netty")
 public class NettyController {
 
-    @Autowired
-    private NettyServerStarter nettyServerStarter;
     
     // 用于保存所有连接的channel
     public static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);

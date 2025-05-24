@@ -3,6 +3,11 @@ server:
   servlet:
     context-path: /api
 
+# Spring 配置
+spring:
+  application:
+    name: netty-client
+
 # Netty 配置
 netty:
   # 客户端配置
@@ -11,6 +16,10 @@ netty:
     port: 8888  # 服务器端口
     reconnect-delay: 5  # 重连延迟(秒)
     connect-timeout: 5000  # 连接超时(毫秒)
+    reader-idle-time-seconds: 0  # 读空闲时间秒数
+    writer-idle-time-seconds: 30  # 写空闲时间秒数
+    all-idle-time-seconds: 0  # 所有空闲时间秒数
+    max-lost-heartbeat: 3  # 最大丢失心跳次数
     
   # 线程池配置
   thread:

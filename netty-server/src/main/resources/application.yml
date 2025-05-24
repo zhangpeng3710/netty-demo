@@ -1,50 +1,25 @@
+# 服务配置
 server:
   port: 8080
   servlet:
     context-path: /api
 
+# Spring 配置
+spring:
+  application:
+    name: netty-server
+
 # Netty 配置
 netty:
-  # 服务器配置
-  server:
-    host: 0.0.0.0  # 服务器绑定地址
-    port: 8888  # 服务器端口
-    boss-threads: 1  # boss 线程数
-    worker-threads: 0  # worker 线程数，0 表示使用 Netty 默认值
-    keep-alive: true  # 是否保持长连接
-    backlog: 128  # 最大等待连接数
-    
-    # 心跳配置
-    reader-idle-time-seconds: 5  # 读空闲时间(秒)
-    writer-idle-time-seconds: 4  # 写空闲时间(秒)
-    all-idle-time-seconds: 0  # 所有类型空闲时间(秒)
-    max-lost-heartbeat: 3  # 最大丢失心跳次数
-  
-  # 客户端配置
-  client:
-    host: 127.0.0.1  # 服务器地址
-    port: 8888  # 服务器端口
-    reconnect-delay: 5  # 重连延迟(秒)
-    connect-timeout: 5000  # 连接超时(毫秒)
-    
-  # 线程池配置
-  thread:
-    boss-name-prefix: netty-boss-
-    worker-name-prefix: netty-worker-
-    client-name-prefix: netty-client-
-
-# 日志配置
-logging:
-  level:
-    root: info
-    io.netty: warn
-    org.springframework: warn
-    com.example.nettydemo: debug
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
-  file:
-    name: logs/netty-demo.log
-  logback:
-    rolling policy:
-      max-file-size: 10MB
-      max-history: 7
+  host: 0.0.0.0  # 服务器绑定地址
+  port: 8888  # 服务器端口
+  boss-threads: 2  # boss 线程数
+  worker-threads: 8  # worker 线程数，0 表示使用 Netty 默认值
+  keep-alive: true  # 是否保持长连接
+  backlog: 128  # 最大等待连接数
+  reader-idle-time-seconds: 0  # 读空闲时间秒数
+  writer-idle-time-seconds: 0  # 写空闲时间秒数
+  all-idle-time-seconds: 10  # 所有空闲时间秒数
+  max-lost-heartbeat: 3  # 最大丢失心跳次数
+  boss-name-prefix: netty-boss-
+  worker-name-prefix: netty-worker-

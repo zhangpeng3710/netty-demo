@@ -1,4 +1,4 @@
-package com.roc.netty.client.netty.client;
+package com.roc.netty.client.netty;
 
 import com.roc.netty.client.config.NettyConfig;
 import io.netty.bootstrap.Bootstrap;

@@ -1,25 +1,29 @@
 package com.roc.netty.client.handler;
 
+import com.roc.netty.client.config.NettyConfig;
 import com.roc.netty.client.protocol.MessageProtocol;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 心跳检测处理器
  */
 @Slf4j
 @Component
+@ChannelHandler.Sharable
 public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
-    
+
     private int lostHeartbeatCount = 0;
-    
-    @Value("${netty.max-lost-heartbeat:3}")
-    private int maxLostHeartbeat;
-    
+
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         if (evt instanceof IdleStateEvent) {
@@ -28,13 +32,13 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
             heartbeat.setType((byte) 1); // 心跳请求类型
             heartbeat.setLength(1); // 只有类型字段，没有内容
             heartbeat.setContent(new byte[0]);
-            
+
             ctx.writeAndFlush(heartbeat);
             
             lostHeartbeatCount++;
             log.info("发送心跳消息，当前心跳丢失次数: {}", lostHeartbeatCount);
             
-            if (lostHeartbeatCount > maxLostHeartbeat) {
+            if (lostHeartbeatCount > 3) {
                 log.error("心跳超时，关闭连接");
                 ctx.channel().close();
             }
