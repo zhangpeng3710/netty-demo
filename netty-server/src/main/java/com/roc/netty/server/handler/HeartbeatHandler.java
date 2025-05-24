@@ -7,12 +7,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.nio.charset.StandardCharsets;
 
 /**
  * 心跳检测处理器
@@ -33,24 +30,16 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         if (evt instanceof IdleStateEvent) {
             // 发送心跳消息
-//            MessageProtocol heartbeat = new MessageProtocol();
-//            heartbeat.setType((byte) 1); // 心跳请求类型
-//            heartbeat.setLength(1); // 只有类型字段，没有内容
-//            heartbeat.setContent(new byte[0]);
+            MessageProtocol heartbeat = new MessageProtocol();
+            heartbeat.setType((byte) 1); // 心跳请求类型
+            heartbeat.setLength(1); // 只有类型字段，没有内容
+            heartbeat.setContent(new byte[0]);
 
-            String responseContent = "heartbeat...";
-            byte[] responseBytes = responseContent.getBytes(StandardCharsets.UTF_8);
+            ctx.writeAndFlush(heartbeat);
 
-            MessageProtocol response = new MessageProtocol();
-            response.setType((byte) 1);  // 业务消息类型
-            response.setLength(1 + responseBytes.length);  // 类型字段(1字节) + 内容长度
-            response.setContent(responseBytes);
-
-            ctx.writeAndFlush(response);
-            
-            lostHeartbeatCount++;
             log.info("发送心跳消息，当前心跳丢失次数: {}", lostHeartbeatCount);
-            
+            lostHeartbeatCount++;
+
             if (lostHeartbeatCount > 3) {
                 log.error("心跳超时，关闭连接");
                 ctx.channel().close();

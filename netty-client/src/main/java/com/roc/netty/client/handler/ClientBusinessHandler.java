@@ -23,14 +23,27 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessagePr
     protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) throws Exception {
         // 只处理业务消息类型
         if (msg.getType() == 0) {
-            String content = new String(msg.getContent(), StandardCharsets.UTF_8);
-            log.info("客户端收到消息: {}", content);
+            String content = "";
+            if (msg.getContent() != null) {
+                content = new String(msg.getContent(), StandardCharsets.UTF_8);
+            }
+            log.info("客户端收到消息 - 类型: {}, 长度: {}, 内容: {}",
+                    msg.getType(), msg.getLength(), content);
+
+            // 打印接收到的字节数
+            if (ctx.channel() != null && ctx.channel().isActive()) {
+                log.info("Channel is active. Local: {}, Remote: {}",
+                        ctx.channel().localAddress(), ctx.channel().remoteAddress());
+            } else {
+                log.warn("Channel is not active");
+            }
         }
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("连接到服务器成功");
+        log.info("连接到服务器成功. Local: {}, Remote: {}",
+                ctx.channel().localAddress(), ctx.channel().remoteAddress());
 
         // 连接成功后发送一条测试消息
         String content = "Hello from client!";
@@ -41,7 +54,17 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessagePr
         message.setLength(1 + contentBytes.length);  // 类型字段(1字节) + 内容长度
         message.setContent(contentBytes);
 
-        ctx.writeAndFlush(message);
+        log.info("客户端准备发送消息 - 类型: {}, 长度: {}, 内容: {}",
+                message.getType(), message.getLength(), content);
+
+        // 添加监听器来检查是否发送成功
+        ctx.writeAndFlush(message).addListener(future -> {
+            if (future.isSuccess()) {
+                log.info("客户端消息发送成功");
+            } else {
+                log.error("客户端消息发送失败: {}", future.cause().getMessage(), future.cause());
+            }
+        });
     }
 
     @Override

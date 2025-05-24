@@ -58,7 +58,7 @@ public class MessageDecoder extends ByteToMessageDecoder {
             
             // 添加到输出列表，传递给下一个handler
             out.add(message);
-            
+//            in.clear();
             if (log.isDebugEnabled()) {
                 log.debug("Decoded message - Type: {}, Length: {}, Content: {}", 
                         type, length, message.getContentAsString());

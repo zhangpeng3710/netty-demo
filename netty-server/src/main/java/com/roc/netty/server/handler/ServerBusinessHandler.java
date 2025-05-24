@@ -40,7 +40,17 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
             response.setLength(1 + responseBytes.length);  // 类型字段(1字节) + 内容长度
             response.setContent(responseBytes);
 
-            ctx.writeAndFlush(response);
+            log.info("准备发送消息到客户端 - 类型: {}, 长度: {}, 内容: {}",
+                    response.getType(), response.getLength(), responseContent);
+
+            // 添加监听器来检查是否发送成功
+            ctx.writeAndFlush(response).addListener(future -> {
+                if (future.isSuccess()) {
+                    log.info("消息成功发送到客户端");
+                } else {
+                    log.error("消息发送失败: {}", future.cause().getMessage(), future.cause());
+                }
+            });
         }
     }
 
@@ -61,9 +71,8 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
 
         MessageProtocol message = new MessageProtocol();
         message.setType((byte) 0);
-        message.setLength(content.length);
+        message.setLength(1 + content.length);
         message.setContent(content);
-
         channel.writeAndFlush(message);
     }
 

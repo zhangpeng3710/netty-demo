@@ -17,8 +17,8 @@ netty:
     reconnect-delay: 5  # 重连延迟(秒)
     connect-timeout: 5000  # 连接超时(毫秒)
     reader-idle-time-seconds: 0  # 读空闲时间秒数
-    writer-idle-time-seconds: 30  # 写空闲时间秒数
-    all-idle-time-seconds: 0  # 所有空闲时间秒数
+    writer-idle-time-seconds: 0  # 写空闲时间秒数
+    all-idle-time-seconds: 10  # 所有空闲时间秒数
     max-lost-heartbeat: 3  # 最大丢失心跳次数
     
   # 线程池配置
@@ -27,18 +27,3 @@ netty:
     worker-name-prefix: netty-worker-
     client-name-prefix: netty-client-
 
-# 日志配置
-logging:
-  level:
-    root: info
-    io.netty: warn
-    org.springframework: warn
-    com.example.nettydemo: debug
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
-  file:
-    name: logs/netty-demo.log
-  logback:
-    rolling policy:
-      max-file-size: 10MB
-      max-history: 7
