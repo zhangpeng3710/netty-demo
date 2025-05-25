@@ -14,6 +14,8 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,13 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 public class NettyClient {
+    // 最大帧长度
+    private static final int MAX_FRAME_LENGTH = 1024 * 1024; // 1MB
+    private static final int LENGTH_FIELD_OFFSET = 0;
+    private static final int LENGTH_FIELD_LENGTH = 4;
+    private static final int LENGTH_ADJUSTMENT = 0;
+    private static final int INITIAL_BYTES_TO_STRIP = 4;
+
     private final ClientBusinessHandler clientBusinessHandler;
     private final HeartbeatHandler heartbeatHandler;
     private final NettyConfig nettyConfig;
@@ -90,13 +99,21 @@ public class NettyClient {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             ch.pipeline()
+
+                                    .addLast(new LengthFieldBasedFrameDecoder(
+                                            MAX_FRAME_LENGTH,
+                                            LENGTH_FIELD_OFFSET,
+                                            LENGTH_FIELD_LENGTH,
+                                            LENGTH_ADJUSTMENT,
+                                            INITIAL_BYTES_TO_STRIP))
+                                    .addLast(new LengthFieldPrepender(4))
+                                    .addLast(new MessageEncoder())
+                                    .addLast(new MessageDecoder())
                                     .addLast(new IdleStateHandler(
                                             config.getReaderIdleTimeSeconds(),
                                             config.getWriterIdleTimeSeconds(),
                                             config.getAllIdleTimeSeconds(),
                                             TimeUnit.SECONDS))
-                                    .addLast(new MessageEncoder())
-                                    .addLast(new MessageDecoder())
                                     .addLast(heartbeatHandler)
                                     .addLast(clientBusinessHandler);
                         }
