@@ -20,6 +20,7 @@
         <!--通用模块主要用于定义一些各个微服务通用的实体类，工具类或者第三方依赖等。-->
         <module>netty-server</module>
         <module>netty-client</module>
+        <module>app</module>
     </modules>
 
     <properties>
