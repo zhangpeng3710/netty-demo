@@ -35,7 +35,7 @@
     </appender>
 
     <!-- 日志级别设置 -->
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>

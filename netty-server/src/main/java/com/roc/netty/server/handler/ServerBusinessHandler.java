@@ -25,7 +25,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
     private final ClientConnectionService clientConnectionService;
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) {
         // 只处理业务消息类型
         if (msg.getType() == 0) {
             String content = new String(msg.getContent(), StandardCharsets.UTF_8);
@@ -55,7 +55,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
         Channel channel = ctx.channel();
         String clientId = "client-" + UUID.randomUUID().toString().substring(0, 8);
 
@@ -77,7 +77,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
     }
 
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+    public void channelInactive(ChannelHandlerContext ctx) {
         Channel channel = ctx.channel();
         log.info("客户端断开连接: {}", channel.remoteAddress());
 
@@ -87,7 +87,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         log.error("服务端异常", cause);
         ctx.close();
     }

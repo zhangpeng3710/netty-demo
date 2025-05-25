@@ -70,4 +70,8 @@ public class ClientConnectionService {
     public int getConnectionCount() {
         return clientChannelMap.size();
     }
+
+    public void broadcast(String content) {
+        channels.writeAndFlush(content);
+    }
 }

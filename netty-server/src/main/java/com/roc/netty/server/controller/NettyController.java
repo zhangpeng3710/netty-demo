@@ -1,11 +1,9 @@
 package com.roc.netty.server.controller;
 
-import io.netty.channel.group.ChannelGroup;
-import io.netty.channel.group.DefaultChannelGroup;
-import io.netty.util.concurrent.GlobalEventExecutor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.roc.netty.server.service.ClientConnectionService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,15 +14,16 @@ import java.util.Map;
 @RequestMapping("/api/netty")
 public class NettyController {
 
-    
-    // 用于保存所有连接的channel
-    public static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+
+    @Resource
+    private ClientConnectionService service;
+
     
     @GetMapping("/status")
     public Map<String, Object> getStatus() {
         Map<String, Object> result = new HashMap<>();
         result.put("status", "Netty server is running");
-        result.put("activeConnections", channels.size());
+        result.put("activeConnections", service.getConnectionCount());
         return result;
     }
     
@@ -36,12 +35,12 @@ public class NettyController {
         }
         
         // 广播消息给所有连接的客户端
-        channels.writeAndFlush(content);
+        service.broadcast(content);
         
         Map<String, Object> result = new HashMap<>();
         result.put("success", true);
         result.put("message", "Message broadcasted successfully");
-        result.put("recipients", channels.size());
+        result.put("recipients", service.getConnectionCount());
         return result;
     }
 }

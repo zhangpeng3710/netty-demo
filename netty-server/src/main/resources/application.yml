@@ -19,7 +19,7 @@ netty:
   backlog: 128  # 最大等待连接数
   reader-idle-time-seconds: 0  # 读空闲时间秒数
   writer-idle-time-seconds: 0  # 写空闲时间秒数
-  all-idle-time-seconds: 30  # 所有空闲时间秒数
+  all-idle-time-seconds: 10  # 所有空闲时间秒数
   max-lost-heartbeat: 3  # 最大丢失心跳次数
   boss-name-prefix: netty-boss-
   worker-name-prefix: netty-worker-

@@ -50,7 +50,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
     }
     
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         if (msg instanceof MessageProtocol) {
             MessageProtocol message = (MessageProtocol) msg;
             // 处理心跳响应

@@ -18,7 +18,7 @@ netty:
     connect-timeout: 5000  # 连接超时(毫秒)
     reader-idle-time-seconds: 0  # 读空闲时间秒数
     writer-idle-time-seconds: 0  # 写空闲时间秒数
-    all-idle-time-seconds: 10  # 所有空闲时间秒数
+    all-idle-time-seconds: 20  # 所有空闲时间秒数
     max-lost-heartbeat: 3  # 最大丢失心跳次数
     
   # 线程池配置
