@@ -1,0 +1,10 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /api
+
+# Spring 配置
+spring:
+  application:
+    name: netty-app-test
+
