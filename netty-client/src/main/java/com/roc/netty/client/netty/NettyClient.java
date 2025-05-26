@@ -72,14 +72,20 @@ public class NettyClient {
             while (running && !Thread.currentThread().isInterrupted()) {
                 try {
                     connectToServer(config);
-                    if (running) {
-                        TimeUnit.SECONDS.sleep(config.getReconnectDelay());
-                    }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     break;
                 } catch (Exception e) {
                     log.error("Connection attempt failed: {}", e.getMessage());
+                    break;
+                } finally {
+                    try {
+                        // 连接失败后也等待10秒再重试
+                        TimeUnit.SECONDS.sleep(config.getReconnectDelay());
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        break;
+                    }
                 }
             }
         });
