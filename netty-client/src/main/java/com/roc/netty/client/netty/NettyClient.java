@@ -5,6 +5,7 @@ import com.roc.netty.client.codec.MessageEncoder;
 import com.roc.netty.client.config.NettyConfig;
 import com.roc.netty.client.handler.ClientBusinessHandler;
 import com.roc.netty.client.handler.HeartbeatHandler;
+import com.roc.netty.client.handler.TestHandler;
 import com.roc.netty.client.protocol.MessageProtocol;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -115,7 +116,8 @@ public class NettyClient {
                                             config.getAllIdleTimeSeconds(),
                                             TimeUnit.SECONDS))
                                     .addLast(heartbeatHandler)
-                                    .addLast(clientBusinessHandler);
+                                    .addLast(clientBusinessHandler)
+                                    .addLast(new TestHandler());
                         }
                     })
                     .connect(config.getHost(), config.getPort())

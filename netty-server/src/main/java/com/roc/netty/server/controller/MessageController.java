@@ -4,11 +4,17 @@ import com.roc.netty.server.dto.ApiResponse;
 import com.roc.netty.server.dto.MessageRequest;
 import com.roc.netty.server.protocol.MessageProtocol;
 import com.roc.netty.server.service.ClientConnectionService;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import io.netty.util.CharsetUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -32,10 +38,10 @@ public class MessageController {
 
 
     /**
-     * 向指定客户端发送消息
+     * 向指定客户端发送消息-并发
      */
-    @PostMapping("/send")
-    public ApiResponse<String> sendMessage(@Valid @RequestBody MessageRequest request) {
+    @PostMapping("/send/concurrently")
+    public ApiResponse<String> sendMessageConcurrently(@Valid @RequestBody MessageRequest request) {
         String clientId = request.getClientId();
         String content = request.getContent();
 
@@ -50,13 +56,14 @@ public class MessageController {
                     try {
                         // 创建消息协议对象
                         MessageProtocol message = new MessageProtocol();
-                        message.setType((byte) 0); // 业务消息
+                        message.setType((byte) 9); // 测试消息
                         String messageContent = content + " [Thread: " + Thread.currentThread().getName() + "]";
                         byte[] contentBytes = messageContent.getBytes(CharsetUtil.UTF_8);
-                        message.setLength(contentBytes.length);
+                        message.setLength(1 + contentBytes.length);
                         message.setContent(contentBytes);
 
                         // 发送消息
+                        Thread.sleep(100);
                         clientConnectionService.getChannel(clientId).writeAndFlush(message);
                         log.info("向客户端 {} 发送消息: {}", clientId, messageContent);
                     } catch (Exception e) {
@@ -72,7 +79,7 @@ public class MessageController {
             CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
 
             return ApiResponse.success("10条并发消息发送成功");
-            
+
         } catch (Exception e) {
             log.error("向客户端发送消息失败: {}", clientId, e);
             return ApiResponse.error(500, "消息发送失败: " + e.getMessage());
@@ -89,7 +96,50 @@ public class MessageController {
             }
         }
     }
-    
+
+    /**
+     * 向指定客户端发送消息-单线程顺序
+     */
+    @PostMapping("/send/sequentially")
+    public ApiResponse<String> sendMessageSequentially(@Valid @RequestBody MessageRequest request) {
+        String clientId = request.getClientId();
+        String content = request.getContent();
+        Channel channel = clientConnectionService.getChannel(clientId);
+
+
+        try {
+            // 使用Channel的eventLoop来确保消息按顺序发送
+            channel.eventLoop().execute(() -> {
+                for (int i = 0; i < 10; i++) {
+                    try {
+                        // 创建消息协议对象
+                        MessageProtocol message = new MessageProtocol();
+                        message.setType((byte) 9); // 测试消息
+                        String messageContent = String.format("%s [Seq:%d]", content, i + 1);
+                        byte[] contentBytes = messageContent.getBytes(CharsetUtil.UTF_8);
+                        message.setLength(1 + contentBytes.length);
+                        message.setContent(contentBytes);
+
+                        // 发送消息并等待发送完成
+                        ChannelFuture future = channel.writeAndFlush(message).sync();
+                        if (future.isSuccess()) {
+                            log.info("向客户端 {} 发送消息: {}", clientId, messageContent);
+                        } else {
+                            log.error("向客户端 {} 发送消息失败: {}", clientId, future.cause().getMessage());
+                        }
+                    } catch (Exception e) {
+                        log.error("发送消息时发生异常", e);
+                    }
+                }
+            });
+
+            return ApiResponse.success("10条并发消息发送成功");
+        } catch (Exception e) {
+            log.error("向客户端发送消息失败: {}", clientId, e);
+            return ApiResponse.error(500, "消息发送失败: " + e.getMessage());
+        }
+    }
+
     /**
      * 获取所有已连接的客户端ID
      */
@@ -98,7 +148,7 @@ public class MessageController {
         String[] clientIds = clientConnectionService.getAllClientIds();
         return ApiResponse.success("获取客户端列表成功", clientIds);
     }
-    
+
     /**
      * 获取当前连接数
      */

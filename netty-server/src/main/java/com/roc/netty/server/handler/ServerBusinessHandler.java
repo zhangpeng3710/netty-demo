@@ -52,6 +52,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                 }
             });
         }
+        ctx.fireChannelRead(msg);
     }
 
     @Override

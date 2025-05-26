@@ -13,16 +13,19 @@ import lombok.Data;
  */
 @Data
 public class MessageProtocol {
+
     /**
      * 消息长度 (不包括自身的4个字节)
      */
     private int length;
-
     /**
      * 消息类型
      */
     private byte type;
-
+    /**
+     * 消息id
+     */
+    private int msgId;
     /**
      * 消息内容
      */

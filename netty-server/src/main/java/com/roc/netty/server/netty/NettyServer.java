@@ -5,6 +5,7 @@ import com.roc.netty.server.codec.MessageEncoder;
 import com.roc.netty.server.config.NettyConfig;
 import com.roc.netty.server.handler.HeartbeatHandler;
 import com.roc.netty.server.handler.ServerBusinessHandler;
+import com.roc.netty.server.handler.TestHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -104,6 +105,7 @@ public class NettyServer {
                             p.addLast(new HeartbeatHandler());
                             // 添加业务处理器
                             p.addLast(BUSINESS_GROUP, serverBusinessHandler);
+                            p.addLast(new TestHandler());
 
                             log.debug("Channel initialized: {}", ch);
                         }

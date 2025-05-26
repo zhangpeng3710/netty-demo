@@ -17,18 +17,26 @@ import java.nio.charset.StandardCharsets;
 @Component
 @RequiredArgsConstructor
 @Sharable
-public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessageProtocol> {
+public class TestHandler extends SimpleChannelInboundHandler<MessageProtocol> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) throws Exception {
         // 只处理业务消息类型
-        if (msg.getType() == 0) {
+        if (msg.getType() == 9) {
             String content = "";
             if (msg.getContent() != null) {
                 content = new String(msg.getContent(), StandardCharsets.UTF_8);
             }
             log.info("客户端收到消息 - 类型: {}, 长度: {}, 内容: {}",
                     msg.getType(), msg.getLength(), content);
+
+            String responseContent = "Client received: " + content;
+            MessageProtocol message = new MessageProtocol();
+            message.setType((byte) 9);  // 业务消息类型
+            message.setLength(1 + responseContent.getBytes().length);  // 类型字段(1字节) + 内容长度
+            message.setContent(responseContent.getBytes());
+
+            ctx.writeAndFlush(message);
 
             // 打印接收到的字节数
             if (ctx.channel() != null && ctx.channel().isActive()) {
@@ -38,39 +46,6 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                 log.warn("Channel is not active");
             }
         }
-        ctx.fireChannelRead(msg);
-    }
-
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("连接到服务器成功. Local: {}, Remote: {}",
-                ctx.channel().localAddress(), ctx.channel().remoteAddress());
-
-        // 连接成功后发送一条测试消息
-        String content = "Hello from client!";
-        byte[] contentBytes = content.getBytes(StandardCharsets.UTF_8);
-
-        MessageProtocol message = new MessageProtocol();
-        message.setType((byte) 0);  // 业务消息类型
-        message.setLength(1 + contentBytes.length);  // 类型字段(1字节) + 内容长度
-        message.setContent(contentBytes);
-
-        log.info("客户端准备发送消息 - 类型: {}, 长度: {}, 内容: {}",
-                message.getType(), message.getLength(), content);
-
-        // 添加监听器来检查是否发送成功
-        ctx.writeAndFlush(message).addListener(future -> {
-            if (future.isSuccess()) {
-                log.info("客户端消息发送成功");
-            } else {
-                log.error("客户端消息发送失败: {}", future.cause().getMessage(), future.cause());
-            }
-        });
-    }
-
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        log.info("与服务器断开连接");
     }
 
     @Override
