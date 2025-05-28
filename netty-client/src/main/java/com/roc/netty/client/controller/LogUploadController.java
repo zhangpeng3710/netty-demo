@@ -10,12 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -24,13 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 import java.util.zip.GZIPOutputStream;
 
@@ -63,36 +52,32 @@ public class LogUploadController {
 
     @PostMapping("/upload")
     public ResponseEntity<Map<String, Object>> uploadLogFile(
-            @RequestParam("file") MultipartFile file) {
+            @RequestParam("filePath") String filePath) {
         Map<String, Object> response = new HashMap<>();
 
-        // Validate file
-        if (file.isEmpty()) {
+        // Validate file path
+        if (filePath == null || filePath.trim().isEmpty()) {
             response.put("success", false);
-            response.put("message", "Please select a file to upload");
+            response.put("message", "File path is required");
             return ResponseEntity.badRequest().body(response);
         }
 
         try {
-            // Save file to local directory first
-            File uploadDir = new File(logRootDirectory);
-            if (!uploadDir.exists()) {
-                boolean created = uploadDir.mkdirs();
-                if (!created) {
-                    throw new IOException("Failed to create upload directory");
-                }
+            Path fileToUpload = Paths.get(logRootDirectory + File.separator + filePath);
+
+            // Check if file exists and is readable
+            if (!Files.exists(fileToUpload) || !Files.isReadable(fileToUpload)) {
+                response.put("success", false);
+                response.put("message", "File not found or not readable: " + filePath);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
 
-            String originalFilename = file.getOriginalFilename();
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-            String newFilename = timestamp + "_" + (originalFilename != null ? originalFilename : "logfile.log");
-            Path localPath = Paths.get(logRootDirectory, newFilename);
-
-            // Save file locally
-            Files.write(localPath, file.getBytes());
+            // Get file info
+            long fileSize = Files.size(fileToUpload);
+            String fileName = fileToUpload.getFileName().toString();
 
             // Send file to Netty server
-            boolean uploadSuccess = sendFileToServer(localPath.toString());
+            boolean uploadSuccess = sendFileToServer(fileToUpload.toString());
 
             if (!uploadSuccess) {
                 throw new IOException("Failed to send file to server");
@@ -100,10 +85,10 @@ public class LogUploadController {
 
             // Prepare success response
             response.put("success", true);
-            response.put("message", "File uploaded and sent to server successfully");
-            response.put("filename", newFilename);
-            response.put("size", file.getSize());
-            response.put("path", localPath.toString());
+            response.put("message", "Log file sent to server successfully");
+            response.put("filename", fileName);
+            response.put("size", fileSize);
+            response.put("path", fileToUpload.toString());
 
             return ResponseEntity.ok(response);
 
@@ -160,7 +145,6 @@ public class LogUploadController {
                 compressedContent = compress(contentBytes);
 
                 // Create a message with file info and content
-                fileData = new HashMap<>();
                 fileData.put("fileName", fileName);
                 fileData.put("originalSize", contentBytes.length);
                 fileData.put("compressedSize", compressedContent.length);
@@ -173,7 +157,6 @@ public class LogUploadController {
                 fileData.put("content", fileContent);
                 fileData.put("isCompressed", false);
             }
-            fileData = new HashMap<>();
             fileData.put("fileName", fileName);
             fileData.put("originalSize", contentBytes.length);
 
@@ -181,7 +164,7 @@ public class LogUploadController {
             String jsonData = new ObjectMapper().writeValueAsString(fileData);
 
             // Send to server
-            return nettyClient.sendMessage(jsonData);
+            return nettyClient.sendMessage(jsonData, true);
 
         } catch (IOException e) {
             log.error("Error processing or sending file to server: {}", e.getMessage(), e);

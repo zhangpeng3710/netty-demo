@@ -5,7 +5,6 @@ import com.roc.netty.client.codec.MessageEncoder;
 import com.roc.netty.client.config.NettyConfig;
 import com.roc.netty.client.handler.ClientBusinessHandler;
 import com.roc.netty.client.handler.HeartbeatHandler;
-import com.roc.netty.client.handler.TestHandler;
 import com.roc.netty.client.protocol.MessageProtocol;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -122,8 +121,7 @@ public class NettyClient {
                                             config.getAllIdleTimeSeconds(),
                                             TimeUnit.SECONDS))
                                     .addLast(heartbeatHandler)
-                                    .addLast(clientBusinessHandler)
-                                    .addLast(new TestHandler());
+                                    .addLast(clientBusinessHandler);
                         }
                     })
                     .connect(config.getHost(), config.getPort())
@@ -149,7 +147,7 @@ public class NettyClient {
      * @param message 消息内容
      * @return 是否发送成功
      */
-    public boolean sendMessage(String message) {
+    public boolean sendMessage(String message, boolean isFile) {
         if (!isConnected()) {
             log.warn("Cannot send message: not connected to server");
             return false;
@@ -158,7 +156,11 @@ public class NettyClient {
         try {
             byte[] content = message.getBytes(StandardCharsets.UTF_8);
             MessageProtocol msg = new MessageProtocol();
-            msg.setType((byte) 0);
+            if (isFile) {
+                msg.setType((byte) 8);
+            } else {
+                msg.setType((byte) 0);
+            }
             msg.setLength(1 + content.length);
             msg.setContent(content);
 
@@ -170,6 +172,7 @@ public class NettyClient {
             return false;
         }
     }
+
 
     /**
      * 检查客户端是否已连接

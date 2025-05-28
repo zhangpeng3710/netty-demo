@@ -31,7 +31,7 @@ public class MessageController {
             return ApiResponse.error(500, "客户端未连接到服务器");
         }
 
-        boolean success = nettyClient.sendMessage(request.getContent());
+        boolean success = nettyClient.sendMessage(request.getContent(), false);
         if (success) {
             return ApiResponse.success("消息发送成功");
         } else {

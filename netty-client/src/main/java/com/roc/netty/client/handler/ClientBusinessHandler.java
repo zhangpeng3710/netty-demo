@@ -21,24 +21,38 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessagePr
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) throws Exception {
-        // 只处理业务消息类型
-        if (msg.getType() == 0) {
-            String content = "";
-            if (msg.getContent() != null) {
-                content = new String(msg.getContent(), StandardCharsets.UTF_8);
-            }
-            log.info("客户端收到消息 - 类型: {}, 长度: {}, 内容: {}",
-                    msg.getType(), msg.getLength(), content);
-
-            // 打印接收到的字节数
-            if (ctx.channel() != null && ctx.channel().isActive()) {
-                log.info("Channel is active. Local: {}, Remote: {}",
-                        ctx.channel().localAddress(), ctx.channel().remoteAddress());
-            } else {
-                log.warn("Channel is not active");
-            }
+        String content = "";
+        if (msg.getContent() != null) {
+            content = new String(msg.getContent(), StandardCharsets.UTF_8);
         }
-        ctx.fireChannelRead(msg);
+        log.info("客户端收到消息 - 类型: {}, 长度: {}, 内容: {}", msg.getType(), msg.getLength(), content);
+        switch (msg.getType()) {
+            case 0:
+
+                break;
+            case 8:
+
+                break;
+            case 9:
+                String responseContent = "Client received: " + content;
+                MessageProtocol message = new MessageProtocol();
+                message.setType((byte) 9);  // 业务消息类型
+                message.setLength(1 + responseContent.getBytes().length);  // 类型字段(1字节) + 内容长度
+                message.setContent(responseContent.getBytes());
+
+                ctx.writeAndFlush(message);
+                break;
+            default:
+                log.warn("未知消息类型: {}", msg.getType());
+        }
+        // 打印接收到的字节数
+        if (ctx.channel() != null && ctx.channel().isActive()) {
+            log.info("Channel is active. Local: {}, Remote: {}",
+                    ctx.channel().localAddress(), ctx.channel().remoteAddress());
+        } else {
+            log.warn("Channel is not active");
+        }
+
     }
 
     @Override
