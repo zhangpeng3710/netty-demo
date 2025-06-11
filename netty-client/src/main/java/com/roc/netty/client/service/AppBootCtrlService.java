@@ -63,7 +63,7 @@ public class AppBootCtrlService {
             log.info("Started JAR: {}", jarPath);
             return true;
         } catch (Exception e) {
-            log.error("Failed to start JAR: " + jarPath, e);
+            log.error("Failed to start JAR: {}", jarPath, e);
             return false;
         }
     }
@@ -156,7 +156,7 @@ public class AppBootCtrlService {
                     log.info("[{}] {}", jarName, line);
                 }
             } catch (IOException e) {
-                log.error("Error reading output from " + jarName, e);
+                log.error("Error reading output from {}", jarName, e);
             } finally {
                 // 进程结束时从运行列表中移除
                 runningProcesses.remove(jarName);
