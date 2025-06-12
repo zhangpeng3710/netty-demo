@@ -24,6 +24,11 @@ public class MessageProtocol {
     private byte type;
 
     /**
+     * 消息id
+     */
+    private long msgId;
+
+    /**
      * 消息内容
      */
     private byte[] content;

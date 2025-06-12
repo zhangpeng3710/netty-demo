@@ -1,6 +1,7 @@
 package com.roc.netty.server.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roc.netty.server.constant.Constants;
 import com.roc.netty.server.protocol.MessageProtocol;
 import com.roc.netty.server.service.ClientConnectionService;
 import io.netty.channel.Channel;
@@ -44,24 +45,27 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
         }
         // 只处理业务消息类型
         switch (msg.getType()) {
-            case 0:
-                log.info("服务端收到消息: {}", content);
+            case Constants.WELCOME_MESSAGE_TYPE:
+                log.info("服务端收到欢迎消息 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}", msg.getType(), msg.getMsgId(), msg.getLength(), content);
+                break;
+            case Constants.BUSINESS_MESSAGE_REQUEST:
+                log.info("服务端收到消息 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}", msg.getType(), msg.getMsgId(), msg.getLength(), content);
 
                 // 回复消息
                 responseContent = "Server received: " + content;
                 byte[] responseBytes = responseContent.getBytes(StandardCharsets.UTF_8);
 
-                response.setType((byte) 0);  // 业务消息类型
+                response.setType(Constants.BUSINESS_MESSAGE_RESPONSE);  // 业务消息类型
                 response.setLength(1 + responseBytes.length);  // 类型字段(1字节) + 内容长度
                 response.setContent(responseBytes);
 
-                log.info("准备发送消息到客户端 - 类型: {}, 长度: {}, 内容: {}",
-                        response.getType(), response.getLength(), responseContent);
+                log.info("准备发送消息到客户端 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        response.getType(), response.getMsgId(), response.getLength(), responseContent);
 
                 // 添加监听器来检查是否发送成功
                 ctx.writeAndFlush(response);
                 break;
-            case 8:
+            case Constants.FILE_SEND_TO_SERVER_REQUEST:
                 GZIPInputStream gzipIn = null;
                 ByteArrayOutputStream bos = null;
                 ByteArrayInputStream bis = null;
@@ -98,7 +102,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
 
                     // Send response
                     responseContent = "File received and saved: " + savePath;
-                    response.setType((byte) 8);
+                    response.setType(Constants.FILE_SEND_TO_SERVER_RESPONSE);
                     response.setContent(responseContent.getBytes(StandardCharsets.UTF_8));
                     response.setLength(1 + responseContent.getBytes(StandardCharsets.UTF_8).length);
                     ctx.writeAndFlush(response);
@@ -118,9 +122,13 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                     bis.close();
                 }
                 break;
-            case 9:
-                log.info("服务端收到响应 - 类型: {}, 长度: {}, 内容: {}",
-                        msg.getType(), msg.getLength(), content);
+            case Constants.FILE_SEND_TO_CLIENT_REQUEST:
+                log.info("服务端发送文件到客户端 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength(), content);
+                break;
+            case Constants.FILE_SEND_TO_CLIENT_RESPONSE:
+                log.info("服务端收到响应 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength(), content);
                 break;
             default:
                 log.warn("未知消息类型: {}", msg.getType());
@@ -143,7 +151,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
         byte[] content = welcomeMsg.getBytes(StandardCharsets.UTF_8);
 
         MessageProtocol message = new MessageProtocol();
-        message.setType((byte) 0);
+        message.setType(Constants.WELCOME_MESSAGE_TYPE);
         message.setLength(1 + content.length);
         message.setContent(content);
         channel.writeAndFlush(message);

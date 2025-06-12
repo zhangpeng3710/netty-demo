@@ -1,5 +1,6 @@
 package com.roc.netty.client.handler;
 
+import com.roc.netty.client.constant.Constants;
 import com.roc.netty.client.protocol.MessageProtocol;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
@@ -25,25 +26,35 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessagePr
         if (msg.getContent() != null) {
             content = new String(msg.getContent(), StandardCharsets.UTF_8);
         }
-        log.info("客户端收到消息 - 类型: {}, 长度: {}, 内容: {}", msg.getType(), msg.getLength(), content);
+        log.info("客户端收到消息 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}", msg.getType(), msg.getMsgId(), msg.getLength(), content);
         switch (msg.getType()) {
-            case 0:
-
+            case Constants.WELCOME_MESSAGE_TYPE:
+                log.info("客户端收到欢迎消息 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength(), msg.getContent());
                 break;
-            case 8:
-
+            case Constants.BUSINESS_MESSAGE_REQUEST:
+                log.info("客户端收到业务请求 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength(), msg.getContent());
                 break;
-            case 9:
+            case Constants.BUSINESS_MESSAGE_RESPONSE:
+                log.info("客户端收到业务响应 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength(), msg.getContent());
+                break;
+            case Constants.FILE_SEND_TO_SERVER_RESPONSE:
+                log.info("准备发送消息到客户端 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength(), msg.getContent());
+                break;
+            case Constants.FILE_SEND_TO_CLIENT_REQUEST:
                 String responseContent = "Client received: " + content;
                 MessageProtocol message = new MessageProtocol();
-                message.setType((byte) 9);  // 业务消息类型
+                message.setType(Constants.FILE_SEND_TO_CLIENT_RESPONSE);  // 业务消息类型
                 message.setLength(1 + responseContent.getBytes().length);  // 类型字段(1字节) + 内容长度
                 message.setContent(responseContent.getBytes());
 
                 ctx.writeAndFlush(message);
                 break;
             default:
-                log.warn("未知消息类型: {}", msg.getType());
+                log.warn("客户端收到未知消息类型: {}, 消息ID: {}, 长度: {}, 内容: {}", msg.getType(), msg.getMsgId(), msg.getLength(), content);
         }
         // 打印接收到的字节数
         if (ctx.channel() != null && ctx.channel().isActive()) {
@@ -65,12 +76,12 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<MessagePr
         byte[] contentBytes = content.getBytes(StandardCharsets.UTF_8);
 
         MessageProtocol message = new MessageProtocol();
-        message.setType((byte) 0);  // 业务消息类型
+        message.setType(Constants.WELCOME_MESSAGE_TYPE);  // 业务消息类型
         message.setLength(1 + contentBytes.length);  // 类型字段(1字节) + 内容长度
         message.setContent(contentBytes);
 
-        log.info("客户端准备发送消息 - 类型: {}, 长度: {}, 内容: {}",
-                message.getType(), message.getLength(), content);
+        log.info("客户端准备发送消息 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
+                message.getType(), message.getMsgId(), message.getLength(), content);
 
         // 添加监听器来检查是否发送成功
         ctx.writeAndFlush(message).addListener(future -> {

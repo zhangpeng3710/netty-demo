@@ -1,6 +1,7 @@
 package com.roc.netty.server.handler;
 
 import com.roc.netty.server.config.NettyConfig;
+import com.roc.netty.server.constant.Constants;
 import com.roc.netty.server.protocol.MessageProtocol;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -31,7 +32,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
         if (evt instanceof IdleStateEvent) {
             // 发送心跳消息
             MessageProtocol heartbeat = new MessageProtocol();
-            heartbeat.setType((byte) 1); // 心跳请求类型
+            heartbeat.setType(Constants.HEARTBEAT_REQUEST); // 心跳请求类型
             heartbeat.setLength(1); // 只有类型字段，没有内容
             heartbeat.setContent(new byte[0]);
 
@@ -54,7 +55,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
         if (msg instanceof MessageProtocol) {
             MessageProtocol message = (MessageProtocol) msg;
             // 处理心跳响应
-            if (message.getType() == 2) {
+            if (message.getType() == Constants.HEARTBEAT_RESPONSE) {
                 lostHeartbeatCount = 0;
                 if (log.isDebugEnabled()) {
                     log.debug("收到心跳响应: {}", ctx.channel().remoteAddress());
@@ -63,9 +64,9 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
             }
             
             // 处理心跳请求，回复心跳响应
-            if (message.getType() == 1) {
+            if (message.getType() == Constants.HEARTBEAT_REQUEST) {
                 MessageProtocol heartbeatResp = new MessageProtocol();
-                heartbeatResp.setType((byte) 2); // 心跳响应类型
+                heartbeatResp.setType(Constants.HEARTBEAT_RESPONSE); // 心跳响应类型
                 heartbeatResp.setLength(1); // 只有类型字段，没有内容
                 heartbeatResp.setContent(new byte[0]);
                 

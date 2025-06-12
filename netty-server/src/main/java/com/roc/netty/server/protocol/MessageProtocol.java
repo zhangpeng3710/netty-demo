@@ -25,7 +25,7 @@ public class MessageProtocol {
     /**
      * 消息id
      */
-    private int msgId;
+    private long msgId;
     /**
      * 消息内容
      */
