@@ -3,6 +3,7 @@ package com.roc.netty.client.netty;
 import com.roc.netty.client.codec.MessageDecoder;
 import com.roc.netty.client.codec.MessageEncoder;
 import com.roc.netty.client.config.NettyConfig;
+import com.roc.netty.client.constant.Constants;
 import com.roc.netty.client.handler.ClientBusinessHandler;
 import com.roc.netty.client.handler.HeartbeatHandler;
 import com.roc.netty.client.protocol.MessageProtocol;
@@ -35,7 +36,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class NettyClient {
     // 最大帧长度
-    private static final int MAX_FRAME_LENGTH = 1024 * 1024; // 1MB
+    private static final int MAX_FRAME_LENGTH = 100 * 1024 * 1024; // 100MB
     private static final int LENGTH_FIELD_OFFSET = 0;
     private static final int LENGTH_FIELD_LENGTH = 4;
     private static final int LENGTH_ADJUSTMENT = 0;
@@ -157,9 +158,9 @@ public class NettyClient {
             byte[] content = message.getBytes(StandardCharsets.UTF_8);
             MessageProtocol msg = new MessageProtocol();
             if (isFile) {
-                msg.setType((byte) 8);
+                msg.setType(Constants.FILE_SEND_TO_SERVER_REQUEST);
             } else {
-                msg.setType((byte) 0);
+                msg.setType(Constants.BUSINESS_MESSAGE_REQUEST);
             }
             msg.setLength(1 + content.length);
             msg.setContent(content);

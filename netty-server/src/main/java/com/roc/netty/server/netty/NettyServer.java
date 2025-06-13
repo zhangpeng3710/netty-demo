@@ -6,7 +6,11 @@ import com.roc.netty.server.config.NettyConfig;
 import com.roc.netty.server.handler.HeartbeatHandler;
 import com.roc.netty.server.handler.ServerBusinessHandler;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -35,7 +39,7 @@ public class NettyServer {
     private static final EventExecutorGroup BUSINESS_GROUP = new DefaultEventExecutorGroup(16);
 
     // 最大帧长度
-    private static final int MAX_FRAME_LENGTH = 1024 * 1024; // 1MB
+    private static final int MAX_FRAME_LENGTH = 100 * 1024 * 1024; // 100MB
     private static final int LENGTH_FIELD_OFFSET = 0;
     private static final int LENGTH_FIELD_LENGTH = 4;
     private static final int LENGTH_ADJUSTMENT = 0;

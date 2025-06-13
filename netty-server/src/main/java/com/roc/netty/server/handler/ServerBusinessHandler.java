@@ -1,9 +1,9 @@
 package com.roc.netty.server.handler;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.roc.netty.server.constant.Constants;
 import com.roc.netty.server.protocol.MessageProtocol;
 import com.roc.netty.server.service.ClientConnectionService;
+import com.roc.netty.server.service.FileService;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -12,17 +12,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Base64;
-import java.util.HashMap;
 import java.util.UUID;
-import java.util.zip.GZIPInputStream;
 
 /**
  * 服务端业务处理器
@@ -34,6 +26,7 @@ import java.util.zip.GZIPInputStream;
 public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessageProtocol> {
 
     private final ClientConnectionService clientConnectionService;
+    private final FileService fileService;
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) throws IOException {
@@ -66,47 +59,15 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                 ctx.writeAndFlush(response);
                 break;
             case Constants.FILE_SEND_TO_SERVER_REQUEST:
-                GZIPInputStream gzipIn = null;
-                ByteArrayOutputStream bos = null;
-                ByteArrayInputStream bis = null;
                 try {
-                    HashMap fileInfo = new ObjectMapper().readValue(msg.getContent(), HashMap.class);
-                    // Decode base64 data
-                    byte[] compressedData = Base64.getDecoder().decode(fileInfo.get("content").toString());
+                    // 使用FileService处理文件上传
+                    String result = fileService.processUploadedFile(msg.getContent());
 
-                    // Decompress the data
-                    bis = new ByteArrayInputStream(compressedData);
-                    gzipIn = new GZIPInputStream(bis);
-                    bos = new ByteArrayOutputStream();
-
-                    byte[] buffer = new byte[1024];
-                    int len;
-                    while ((len = gzipIn.read(buffer)) > 0) {
-                        bos.write(buffer, 0, len);
-                    }
-
-                    byte[] decompressedData = bos.toByteArray();
-
-                    // Create directory if not exists
-                    String savePath = "logs/uploaded/" + fileInfo.get("filename");
-                    Path saveDir = Paths.get("logs/uploaded");
-                    if (!Files.exists(saveDir)) {
-                        Files.createDirectories(saveDir);
-                    }
-
-                    // Save file
-                    Files.write(java.nio.file.Paths.get(savePath),
-                            Base64.getDecoder().decode((String) fileInfo.get("content")));
-
-                    log.info("File saved successfully: {}", savePath);
-
-                    // Send response
-                    responseContent = "File received and saved: " + savePath;
+                    // 发送成功响应
                     response.setType(Constants.FILE_SEND_TO_SERVER_RESPONSE);
-                    response.setContent(responseContent.getBytes(StandardCharsets.UTF_8));
-                    response.setLength(1 + responseContent.getBytes(StandardCharsets.UTF_8).length);
+                    response.setContent(result.getBytes(StandardCharsets.UTF_8));
+                    response.setLength(1 + result.getBytes(StandardCharsets.UTF_8).length);
                     ctx.writeAndFlush(response);
-
 
                 } catch (Exception e) {
                     log.error("Error processing uploaded file: {}", e.getMessage(), e);
@@ -115,11 +76,6 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                     response.setContent(errorResponse.getBytes(StandardCharsets.UTF_8));
                     response.setLength(1 + errorResponse.getBytes(StandardCharsets.UTF_8).length);
                     ctx.writeAndFlush(response);
-                } finally {
-                    // Close resources
-                    gzipIn.close();
-                    bos.close();
-                    bis.close();
                 }
                 break;
             case Constants.FILE_SEND_TO_CLIENT_REQUEST:

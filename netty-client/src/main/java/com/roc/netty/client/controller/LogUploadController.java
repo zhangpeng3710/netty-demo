@@ -10,7 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,7 +23,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 import java.util.zip.GZIPOutputStream;
 
@@ -140,25 +148,20 @@ public class LogUploadController {
             byte[] compressedContent;
             Map<String, Object> fileData = new HashMap<>();
 
+            fileData.put("fileName", fileName);
+            fileData.put("originalSize", contentBytes.length);
             if (beCompressed) {
                 // Compress the content
                 compressedContent = compress(contentBytes);
-
                 // Create a message with file info and content
-                fileData.put("fileName", fileName);
-                fileData.put("originalSize", contentBytes.length);
                 fileData.put("compressedSize", compressedContent.length);
                 fileData.put("content", Base64.getEncoder().encodeToString(compressedContent));
-                fileData.put("isCompressed", true);
+                fileData.put("beCompressed", true);
             } else {
                 // No compression
-                fileData.put("fileName", fileName);
-                fileData.put("originalSize", contentBytes.length);
                 fileData.put("content", fileContent);
-                fileData.put("isCompressed", false);
+                fileData.put("beCompressed", false);
             }
-            fileData.put("fileName", fileName);
-            fileData.put("originalSize", contentBytes.length);
 
             // Convert to JSON string
             String jsonData = new ObjectMapper().writeValueAsString(fileData);
