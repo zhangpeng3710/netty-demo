@@ -1,14 +1,8 @@
 package com.roc.netty.client.controller;
 
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.core.util.OptionHelper;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roc.netty.client.netty.NettyClient;
+import com.roc.netty.client.service.LogFileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,20 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Base64;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
-import java.util.zip.GZIPOutputStream;
+
 
 /**
  * @Description Controller for handling log file uploads
@@ -42,185 +27,64 @@ import java.util.zip.GZIPOutputStream;
 @RequiredArgsConstructor
 public class LogUploadController {
 
-    @Value("${logUpload.isCompressed}")
-    private boolean beCompressed;
+    private final LogFileService logFileService;
 
-    @Value("${logUpload.bankAccount.isDesensitized}")
-    private boolean beDesensitized;
-
-    @Value("${logUpload.bankAccount.regex}")
-    private String bankAccountRegex;
-
-    private final NettyClient nettyClient;
-
-    private final String logRootDirectory = System.getProperty("user.dir")
-            + File.separator
-            + OptionHelper.substVars("${LOG_PATH}", (LoggerContext) LoggerFactory.getILoggerFactory());
-
-
-    @PostMapping("/upload")
-    public ResponseEntity<Map<String, Object>> uploadLogFile(
-            @RequestParam("filePath") String filePath) {
-        Map<String, Object> response = new HashMap<>();
-
-        // Validate file path
-        if (filePath == null || filePath.trim().isEmpty()) {
-            response.put("success", false);
-            response.put("message", "File path is required");
-            return ResponseEntity.badRequest().body(response);
-        }
+    @PostMapping("/uploadByTimePoint")
+    public ResponseEntity<Map<String, Object>> uploadLogFileByTimePoint(
+            @RequestParam String startDay,
+            @RequestParam String endDay) {
 
         try {
-            Path fileToUpload = Paths.get(logRootDirectory + File.separator + filePath);
+            LocalDate startDate = LocalDate.parse(startDay);
+            LocalDate endDate = LocalDate.parse(endDay);
 
-            // Check if file exists and is readable
-            if (!Files.exists(fileToUpload) || !Files.isReadable(fileToUpload)) {
-                response.put("success", false);
-                response.put("message", "File not found or not readable: " + filePath);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            // Validate date range
+            if (startDate.isAfter(endDate)) {
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Start date must be before or equal to end date");
+                return ResponseEntity.badRequest().body(errorResponse);
             }
 
-            // Get file info
-            long fileSize = Files.size(fileToUpload);
-            String fileName = fileToUpload.getFileName().toString();
-
-            // Send file to Netty server
-            boolean uploadSuccess = sendFileToServer(fileToUpload.toString());
-
-            if (!uploadSuccess) {
-                throw new IOException("Failed to send file to server");
-            }
-
-            // Prepare success response
-            response.put("success", true);
-            response.put("message", "Log file sent to server successfully");
-            response.put("filename", fileName);
-            response.put("size", fileSize);
-            response.put("path", fileToUpload.toString());
-
+            Map<String, Object> response = logFileService.uploadLogFilesByDateRange(startDate, endDate);
             return ResponseEntity.ok(response);
 
-        } catch (IOException e) {
-            response.put("success", false);
-            response.put("message", "Failed to process file: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        } catch (DateTimeParseException e) {
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "Invalid date format. Please use yyyy-MM-dd format");
+            return ResponseEntity.badRequest().body(errorResponse);
         }
     }
 
-    /**
-     * Masks bank account numbers in the content (keeps first 4 and last 4 digits)
-     */
-    private String maskBankAccounts(String content) {
-        // This regex matches 12-19 digit bank account numbers
-        return content.replaceAll(bankAccountRegex, "$1****$3");
-    }
-
-    /**
-     * Compresses data using GZIP
-     */
-    private byte[] compress(byte[] data) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(data.length);
-        try (GZIPOutputStream gzipOS = new GZIPOutputStream(byteArrayOutputStream)) {
-            gzipOS.write(data);
+    @PostMapping("/uploadByPath")
+    public ResponseEntity<Map<String, Object>> uploadLogFileByPath(@RequestParam("filePath") String filePath) {
+        if (filePath == null || filePath.trim().isEmpty()) {
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "File path is required");
+            return ResponseEntity.badRequest().body(errorResponse);
         }
-        return byteArrayOutputStream.toByteArray();
-    }
 
-    /**
-     * Sends a file to the Netty server with bank account masking and compression
-     *
-     * @param filePath Path to the file to send
-     * @return true if the file was sent successfully, false otherwise
-     */
-    private boolean sendFileToServer(String filePath) {
-        try {
-            // Read file content as text for masking
-            String fileContent = new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
-            String fileName = Paths.get(filePath).getFileName().toString();
+        Map<String, Object> response = logFileService.uploadLogFileByPath(filePath);
+        boolean success = (boolean) response.getOrDefault("success", false);
 
-            // Mask bank account numbers
-            if (beDesensitized) {
-                fileContent = maskBankAccounts(fileContent);
-            }
-
-            // Convert back to bytes for compression
-            byte[] contentBytes = fileContent.getBytes(StandardCharsets.UTF_8);
-            byte[] compressedContent;
-            Map<String, Object> fileData = new HashMap<>();
-
-            fileData.put("fileName", fileName);
-            fileData.put("originalSize", contentBytes.length);
-            if (beCompressed) {
-                // Compress the content
-                compressedContent = compress(contentBytes);
-                // Create a message with file info and content
-                fileData.put("compressedSize", compressedContent.length);
-                fileData.put("content", Base64.getEncoder().encodeToString(compressedContent));
-                fileData.put("beCompressed", true);
-            } else {
-                // No compression
-                fileData.put("content", fileContent);
-                fileData.put("beCompressed", false);
-            }
-
-            // Convert to JSON string
-            String jsonData = new ObjectMapper().writeValueAsString(fileData);
-
-            // Send to server
-            return nettyClient.sendMessage(jsonData, true);
-
-        } catch (IOException e) {
-            log.error("Error processing or sending file to server: {}", e.getMessage(), e);
-            return false;
+        if (success) {
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(500).body(response);
         }
     }
 
     @GetMapping("/list")
     public ResponseEntity<Map<String, Object>> listUploadedLogs() {
-        Map<String, Object> response = new HashMap<>();
-        Path uploadPath = Paths.get(logRootDirectory);
+        Map<String, Object> response = logFileService.listLogFiles();
+        boolean success = (boolean) response.getOrDefault("success", false);
 
-        if (!Files.exists(uploadPath) || !Files.isDirectory(uploadPath)) {
-            response.put("success", false);
-            response.put("message", "Upload directory does not exist");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-
-        List<Map<String, Object>> fileList = new ArrayList<>();
-        try (Stream<Path> walk = Files.walk(uploadPath)) {
-            walk.filter(Files::isRegularFile)
-                    .filter(path -> {
-                        String fileName = path.getFileName().toString().toLowerCase();
-                        return fileName.endsWith(".log") || fileName.endsWith(".txt") || fileName.endsWith(".out");
-                    })
-                    .forEach(path -> {
-                        try {
-                            Map<String, Object> fileInfo = new HashMap<>();
-                            fileInfo.put("name", path.getFileName().toString());
-                            fileInfo.put("path", uploadPath.relativize(path).toString());
-                            fileInfo.put("size", Files.size(path));
-                            fileInfo.put("lastModified", Files.getLastModifiedTime(path).toMillis());
-                            fileList.add(fileInfo);
-                        } catch (IOException e) {
-                            // Skip files we can't read
-                        }
-                    });
-        } catch (IOException e) {
-            response.put("success", false);
-            response.put("message", "Error reading directory: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-        }
-
-        if (fileList.isEmpty()) {
-            response.put("success", true);
-            response.put("message", "No log files found");
-            response.put("files", new ArrayList<>());
+        if (success) {
             return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(500).body(response);
         }
-
-        response.put("success", true);
-        response.put("count", fileList.size());
-        response.put("files", fileList);
-        return ResponseEntity.ok(response);
     }
 }

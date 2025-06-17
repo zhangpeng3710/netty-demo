@@ -59,6 +59,8 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                 ctx.writeAndFlush(response);
                 break;
             case Constants.FILE_SEND_TO_SERVER_REQUEST:
+                log.info("服务端收到文件 - 类型: {}, 消息ID: {}, 长度: {}",
+                        response.getType(), response.getMsgId(), response.getLength());
                 try {
                     // 使用FileService处理文件上传
                     String result = fileService.processUploadedFile(msg.getContent());
@@ -79,8 +81,8 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<MessagePr
                 }
                 break;
             case Constants.FILE_SEND_TO_CLIENT_REQUEST:
-                log.info("服务端发送文件到客户端 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
-                        msg.getType(), msg.getMsgId(), msg.getLength(), content);
+                log.info("服务端发送文件到客户端 - 类型: {}, 消息ID: {}, 长度: {}",
+                        msg.getType(), msg.getMsgId(), msg.getLength());
                 break;
             case Constants.FILE_SEND_TO_CLIENT_RESPONSE:
                 log.info("服务端收到响应 - 类型: {}, 消息ID: {}, 长度: {}, 内容: {}",
